@@ -2,25 +2,37 @@ import pandas as pd
 
 def input_text_from_console():
     """
-    Функція для введення тексту з консолі.
+    Функція для вводу тексту з консолі.
     """
-    # TODO: Додати код для введення тексту з консолі
-    pass
+    text = input("Введіть текст з консолі: ")
+    return text
 
 def read_file_with_builtin(filename):
     """
     Функція для зчитування з файлу за допомогою вбудованих можливостей Python.
     """
-    # TODO: Додати код для зчитування з файлу
-    pass
+    try:
+        with open(filename, 'r') as file:
+            file_content = file.read()
+        return file_content
+    except FileNotFoundError:
+        print(f"Файл '{filename}' не знайдено.")
+        return None
+    except Exception as e:
+        print(f"Виникла помилка при зчитуванні файлу '{filename}': {e}")
+        return None
 
 def read_file_with_pandas(filename):
     """
     Функція для зчитування з файлу за допомогою бібліотеки pandas.
     """
-    # TODO: Додати код для зчитування з файлу за допомогою pandas
-    pass
-
-if __name__ == "__main__":
-    # Для демонстрації можливостей можна додати код для виклику функцій
-    pass
+    try:
+        dataframe = pd.read_csv(filename)
+        file_content = dataframe.to_string(index=False)
+        return file_content
+    except FileNotFoundError:
+        print(f"Файл '{filename}' не знайдено.")
+        return None
+    except Exception as e:
+        print(f"Виникла помилка при зчитуванні файлу '{filename}': {e}")
+        return None

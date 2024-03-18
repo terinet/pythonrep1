@@ -1,17 +1,29 @@
+import pandas as pd
+
 def output_text_to_console(text):
     """
     Функція для виводу тексту у консоль.
     """
-    # TODO: Додати код для виведення тексту у консоль
-    pass
+    print(text)
 
 def write_to_file_with_builtin(filename, content):
     """
     Функція для запису до файлу за допомогою вбудованих можливостей Python.
     """
-    # TODO: Додати код для запису до файлу
-    pass
+    try:
+        with open(filename, 'w') as file:
+            file.write(content)
+        print(f"Дані успішно записано у файл '{filename}'.")
+    except Exception as e:
+        print(f"Виникла помилка при записі до файлу '{filename}': {e}")
 
-if __name__ == "__main__":
-    # Для демонстрації можливостей можна додати код для виклику функцій
-    pass
+def write_to_file_with_pandas(filename, content):
+    """
+    Функція для запису до файлу за допомогою бібліотеки pandas.
+    """
+    try:
+        dataframe = pd.DataFrame(content)
+        dataframe.to_csv(filename, index=False)
+        print(f"Дані успішно записано у файл '{filename}' за допомогою бібліотеки pandas.")
+    except Exception as e:
+        print(f"Виникла помилка при записі до файлу '{filename}' за допомогою бібліотеки pandas: {e}")
