@@ -36,3 +36,6 @@ def read_file_with_pandas(filename):
     except Exception as e:
         print(f"Виникла помилка при зчитуванні файлу '{filename}': {e}")
         return None
+
+if __name__ == "__main__":
+    pass
