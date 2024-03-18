@@ -3,13 +3,21 @@ import pandas as pd
 def input_text_from_console():
     """
     Функція для вводу тексту з консолі.
+
+    :return: Введений користувачем текст з консолі.
+    :rtype: str
     """
     text = input("Введіть текст з консолі: ")
     return text
 
 def read_file_with_builtin(filename):
     """
-    Функція для зчитування з файлу за допомогою вбудованих можливостей Python.
+    Зчитує дані з файлу, використовуючи вбудовані можливості Python.
+
+    :param filename: Ім'я файлу, з якого потрібно зчитати дані.
+    :type filename: str
+    :return: Зчитані дані з файлу.
+    :rtype: str
     """
     try:
         with open(filename, 'r') as file:
@@ -24,7 +32,12 @@ def read_file_with_builtin(filename):
 
 def read_file_with_pandas(filename):
     """
-    Функція для зчитування з файлу за допомогою бібліотеки pandas.
+    Зчитує дані з файлу, використовуючи бібліотеку pandas.
+
+    :param filename: Ім'я файлу, з якого потрібно зчитати дані.
+    :type filename: str
+    :return: Зчитані дані з файлу.
+    :rtype: pandas.DataFrame
     """
     try:
         dataframe = pd.read_csv(filename)
